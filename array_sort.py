@@ -94,3 +94,33 @@ def heap(array):
         a[i], a[0] = a[0], a[i]
         size -= 1
         heap_max_heapify(a, 0, size)
+
+
+def quick_partition(array, start, end):
+    a = array
+    p = start
+    r = end
+    x = a[r]
+    i = p - 1
+    for j in range(p, r):
+        if a[j] <= x:
+            i += 1
+            a[i], a[j] = a[j], a[i]
+    i += 1
+    a[i], a[r] = a[r], a[i]
+    return i
+
+
+def quick_recursion(array, start, end):
+    a = array
+    p = start
+    r = end
+    if p < r:
+        q = quick_partition(a, p, r)
+        quick_recursion(a, p, q - 1)
+        quick_recursion(a, q + 1, r)
+
+
+def quick(array):
+    length = len(array) - 1
+    quick_recursion(array, 0, length)
