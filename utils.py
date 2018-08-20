@@ -1,3 +1,6 @@
+import random
+
+
 def log(*arg):
     print('>>>', *arg)
 
