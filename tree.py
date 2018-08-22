@@ -23,3 +23,13 @@ def in_order_recur(node, callback):
     callback(node)
     if node.right != None:
         in_order_recur(node.right, callback)
+
+
+def post_order_recur(node, callback):
+    if node == None:
+        return
+    if node.left != None:
+        post_order_recur(node.left, callback)
+    if node.right != None:
+        post_order_recur(node.right, callback)
+    callback(node)
